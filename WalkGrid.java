@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WalkGrid {
-
 	/**
 	 * @author wyl
 	 * 有编号1-n的n个格子，机器人从1号格子顺序向后走，一直走到n号格子，
@@ -29,7 +28,6 @@ public class WalkGrid {
 				i = i-1;
 				System.out.println("輸入的不是數字，請重新輸入");
 			}
-			
 		}
 		System.out.println(list);
 		int result = fun(list);
@@ -49,7 +47,6 @@ public class WalkGrid {
 			}
 		}
 		return result;
-		
 	}
 
 }
