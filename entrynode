@@ -1,0 +1,73 @@
+package com.nowcoder.wenda.arithmetic;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+/**如果一个链表中包含环，如何找出环的入口节点？
+ * 查找链表中环的入口
+ * Created by wuyunlong on 17-11-28.
+ */
+public class DeleteNode {
+    public static  void  main(String[] args){
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        ListNode node4 = new ListNode(5);
+        ListNode node5 = new ListNode(6);
+        head.next=node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node2;
+        ListNode newnode = entrynode(head);
+        System.out.println("得出最后相遇节点： "+newnode.val);
+
+    }
+
+
+    public static  ListNode meetingnode(ListNode head){
+        if(head == null || head.next ==null){
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        while(slow!=null && fast !=null){
+            //快慢指针一起走
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast){
+                return slow;
+            }
+        }
+        return null;
+    }
+
+    public static ListNode entrynode(ListNode head){
+        ListNode meet = meetingnode(head);
+        if(meet == null){
+            System.out.println("没有环");
+        }
+        //得到环中节点数目
+        int num = 1;
+        ListNode tem = meet;
+        while(tem.next!=meet){
+            tem = tem.next;
+            num++;
+        }
+        System.out.println("环中节点数: "+num);
+        //移动一个节点，次数为环中节点数目
+        tem = head;
+        for(int i=0;i<num;i++){
+            tem = tem.next;
+        }
+        //再同时移动tem和tem1
+        ListNode tem1 = head;
+        while(tem1!=tem){
+            tem = tem.next;
+            tem1 =tem1.next;
+        }
+        return tem;
+    }
+}
