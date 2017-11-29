@@ -1,0 +1,35 @@
+package com.nowcoder.wenda.algorithm;
+
+import java.util.HashMap;
+
+/**给定一个整数数组和一个整数target，返回2个元素的下标，它们满足相加的和为target。
+ * Created by wuyunlong on 17-11-29.
+ */
+public class Solution1 {
+    public  static void main(String[] args ){
+        int[] array = {2,7,11,15};
+        int target = 9 ;
+
+        int[] a= twoSum(array,target);
+        for(int i =0 ;i<a.length;i++){
+            System.out.println(a[i]);
+        }
+    }
+
+    public static int[] twoSum(int[] array,int target){
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        for(int i=0;i<array.length;i++){
+            Integer index = map.get(target-array[i]);
+            System.out.println("===="+index);
+            if(index == null){
+                //map里面存放这，对应数组值和对应的index号
+                map.put(array[i],i);
+
+            }else{
+                return new int[]{i,index};
+            }
+        }
+        return new int[]{0,0};
+    }
+
+ }
