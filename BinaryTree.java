@@ -12,7 +12,7 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * ´´½¨Ò»¿Å¶ş²æÊ÷
+	 * åˆ›å»ºä¸€é¢—äºŒå‰æ ‘
 	 *   		A 
      *     B          C 
      *  D     E            F 
@@ -34,13 +34,13 @@ public class BinaryTree {
 		return root = null ;
 	}
 	/*
-	 * ÇóÊ÷µÄ¸ß¶È
+	 * æ±‚æ ‘çš„é«˜åº¦
 	 * */
 	public int height() {
 		return height(root);
 	}
 	/*
-	 * Çó½Úµã¸öÊı
+	 * æ±‚èŠ‚ç‚¹ä¸ªæ•°
 	 * */
 	public int size() {
 		return size(root);
@@ -66,7 +66,7 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * ·µ»ØË«Ç×½Úµã
+	 * è¿”å›åŒäº²èŠ‚ç‚¹
 	 * */
 	public treenode parent(treenode element){
 		return  (treenode) ((root == null || root == element) ? null: parent(root,element));
@@ -78,16 +78,16 @@ public class BinaryTree {
 			return null;
 		}
 		if(subtree.leftchild == element || subtree.rightchild == element){
-			//·µ»Ø¸¸½Úµã
+			//è¿”å›çˆ¶èŠ‚ç‚¹
 			return  element;
 		}
 		treenode p ;
-		//ÏÈÔÚ×ó×ÓÊ÷ÖĞÕÒ£¬Èç¹û×ó×ÓÊ÷Ã»ÓĞ£¬²ÅÔÚÓÒ×ÓÊ÷ÖĞÕÒ
+		//å…ˆåœ¨å·¦å­æ ‘ä¸­æ‰¾ï¼Œå¦‚æœå·¦å­æ ‘æ²¡æœ‰ï¼Œæ‰åœ¨å³å­æ ‘ä¸­æ‰¾
 		if((p=parent(subtree.leftchild,element)) != null){
-			//µİ¹éÔÚ×ó×ÓÊ÷ÕÒ
+			//é€’å½’åœ¨å·¦å­æ ‘æ‰¾
 			return p;
 		}else{
-			//µİ¹éÔÚÓÒ×ÓÊ÷ÕÒ
+			//é€’å½’åœ¨å³å­æ ‘æ‰¾
 			return parent(subtree.rightchild, element);
 		}
 	}
@@ -104,16 +104,16 @@ public class BinaryTree {
 		return root;
 	}
 	
-	//ÔÚÊÍ·ÅÄ³¸ö½ÚµãÊ±£¬¸Ã½ÚµãµÄ×óÓÒ×ÓÊ÷¶¼ÒÑ¾­ÊÍ·ÅÁË£¬
-	//ËùÒÔÓ¦¸Ã²ÉÓÃºóĞò±éÀú£¬µ±·ÃÎÊÄ³¸ö½ÚµãÊ±¸Ã½ÚµãµÄ´æ´¢¿Õ¼äÊÍ·Å
+	//åœ¨é‡Šæ”¾æŸä¸ªèŠ‚ç‚¹æ—¶ï¼Œè¯¥èŠ‚ç‚¹çš„å·¦å³å­æ ‘éƒ½å·²ç»é‡Šæ”¾äº†ï¼Œ
+	//æ‰€ä»¥åº”è¯¥é‡‡ç”¨ååºéå†ï¼Œå½“è®¿é—®æŸä¸ªèŠ‚ç‚¹æ—¶è¯¥èŠ‚ç‚¹çš„å­˜å‚¨ç©ºé—´é‡Šæ”¾
 	public void  destroy(treenode subtree){
-		//É¾³ı¸ùÎªsubtreeµÄ×ÓÊ÷
+		//åˆ é™¤æ ¹ä¸ºsubtreeçš„å­æ ‘
 		if(subtree != null){
-			//É¾³ı×ó×ÓÊ÷
+			//åˆ é™¤å·¦å­æ ‘
 			destroy(subtree.leftchild);
-			//É¾³ıÓÒ×ÓÊ÷
+			//åˆ é™¤å³å­æ ‘
 			destroy(subtree.rightchild);
-			//É¾³ı¸ù½Úµã
+			//åˆ é™¤æ ¹èŠ‚ç‚¹
 			subtree = null;
 		}
 	}
@@ -125,7 +125,7 @@ public class BinaryTree {
 	}
 
 	/*
-	 * Ç°Ğò±éÀú
+	 * å‰åºéå†
 	 * */
 	public void preorder(treenode subtree){
 		if(subtree != null){
@@ -136,7 +136,7 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * ÖĞĞò±éÀú
+	 * ä¸­åºéå†
 	 * */
 	public void inorder(treenode subtree){
 		if(subtree != null){
@@ -147,7 +147,7 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * ºóĞò±éÀú
+	 * ååºéå†
 	 * */
 	public void postorder(treenode subtree){
 		if(subtree != null){
@@ -158,7 +158,7 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * Ç°Ğò±éÀúµÄ·Çµİ¹é±éÀú
+	 * å‰åºéå†çš„éé€’å½’éå†
 	 * */
 	public void nonrecpreorder(treenode p){
 		Stack<treenode> stack = new Stack<treenode>();
@@ -175,18 +175,18 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * ÖĞĞò±éÀúµÄ·Çµİ¹é±éÀú
+	 * ä¸­åºéå†çš„éé€’å½’éå†
 	 * */
 	public void nonrecinorder(treenode p) {
 		Stack<treenode> stack = new Stack<treenode>();
 		treenode node = p;
 		while(node != null || stack.size() > 0){
-			//´æÔÚ×ÓÊ÷
+			//å­˜åœ¨å­æ ‘
 			while(node != null){
 				stack.push(node);
 				node = node.leftchild;
 			}
-			//Õ»·Ç¿Õ
+			//æ ˆéç©º
 			if(stack.size() > 0){
 				node = stack.pop();
 				visited(node);
@@ -195,26 +195,26 @@ public class BinaryTree {
 		}
 	}
 	
-	//ºóĞò±éÀúµÄ·Çµİ¹éÊµÏÖ
+	//ååºéå†çš„éé€’å½’å®ç°
 	public void nonrecpostorder(treenode p){
 		Stack<treenode> stack = new Stack<treenode>();
 		treenode node = p;
 		while(p != null){
-			//×ó×ÓÊ÷ÈëÕ»
+			//å·¦å­æ ‘å…¥æ ˆ
 			for(;p.leftchild != null;p=p.leftchild){
 				stack.push(p);
 			}
-			//µ±Ç°½ÚµãÎŞÓÒ×ÓÊ÷»òÓÒ×ÓÊ÷ÒÑ¾­Êä³ö
+			//å½“å‰èŠ‚ç‚¹æ— å³å­æ ‘æˆ–å³å­æ ‘å·²ç»è¾“å‡º
 			while(p != null && ( p.rightchild == null || p.rightchild == node)){
 				visited(p);
-				//¼ÇÂ¼ÉÏÒ»¸öÒÑ¾­Êä³ö½Úµã
+				//è®°å½•ä¸Šä¸€ä¸ªå·²ç»è¾“å‡ºèŠ‚ç‚¹
 				node = p;
 				if(stack.empty()){
 					return ;
 				}
 				p = stack.pop();
 			}
-			//´¦ÀíÓÒ×ÓÊ÷
+			//å¤„ç†å³å­æ ‘
 			stack.push(p);
 			p = p.rightchild;
 		}
@@ -227,7 +227,7 @@ public class BinaryTree {
 
 
 	/*
-	 * ¶ş²æÊ÷½ÚµãÊı¾İ½á¹¹
+	 * äºŒå‰æ ‘èŠ‚ç‚¹æ•°æ®ç»“æ„
 	 * */
 	class treenode{
 		private int key = 0;
@@ -246,6 +246,7 @@ public class BinaryTree {
 		}
 		
 	}
+	
 	/**
 	 * @param args
 	 */
@@ -255,22 +256,22 @@ public class BinaryTree {
 		System.out.println("the size of the tree is "+bt.size());
 		System.out.println("the height of the tree is "+bt.height());
 		
-		System.out.println("********Ç°Ğò±éÀú¡¾ABDECF¡¿********");
+		System.out.println("********å‰åºéå†ã€ABDECFã€‘********");
 		bt.preorder(bt.root);
 		
-		System.out.println("********ÖĞĞò±éÀú¡¾DBEACF¡¿*********");
+		System.out.println("********ä¸­åºéå†ã€DBEACFã€‘*********");
 		bt.inorder(bt.root);
 		
-		System.out.println("*********ºóĞò±éÀú¡¾DEBFCA¡¿*********");
+		System.out.println("*********ååºéå†ã€DEBFCAã€‘*********");
 		bt.postorder(bt.root);
 		
-		System.out.println("*************·Çµİ¹é Ç°Ğò¡¾ABDECF¡¿**************");
+		System.out.println("*************éé€’å½’ å‰åºã€ABDECFã€‘**************");
 		bt.nonrecpreorder(bt.root);
 		
-		System.out.println("***************·Çµİ¹é ÖĞĞò¡¾DBEACF¡¿****************");
+		System.out.println("***************éé€’å½’ ä¸­åºã€DBEACFã€‘****************");
 		bt.nonrecinorder(bt.root);
 		
-		System.out.println("**************·Çµİ¹é ºóĞò¡¾DEBFCA¡¿***************");
+		System.out.println("**************éé€’å½’ ååºã€DEBFCAã€‘***************");
 		bt.nonrecpostorder(bt.root);
 	}
 
