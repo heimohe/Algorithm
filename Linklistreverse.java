@@ -4,26 +4,26 @@ public class Linklistreverse {
 
 	/**
 	 * @param args
-	 * µ¥Á´±íÄæÖÃ
+	 * å•é“¾è¡¨é€†ç½®
 	 */
 	public static void main(String[] args) {
-		//Éú³ÉÁ´±í
+		//ç”Ÿæˆé“¾è¡¨
 		node list = generatelist();
-		//Á´±íÄæÖÃ
+		//é“¾è¡¨é€†ç½®
 		node newlist = reverse(list);
-		//ĞÂÁ´±íµÄµÚÒ»¸öÓ¦¸ÃÊÇÄæÖÃÇ°µÄ×îºóÒ»¸ö
+		//æ–°é“¾è¡¨çš„ç¬¬ä¸€ä¸ªåº”è¯¥æ˜¯é€†ç½®å‰çš„æœ€åä¸€ä¸ª
 		System.out.println(newlist.value);
 	}
 
 	private static node reverse(node list) {
-		//Èç¹ûÁ´±íÎª¿Õ,»òÕßÖ»ÓĞÒ»¸öÔªËØ·µ»Ø
+		//å¦‚æœé“¾è¡¨ä¸ºç©º,æˆ–è€…åªæœ‰ä¸€ä¸ªå…ƒç´ è¿”å›
 		if(list == null || list.next == null ){
 			return list;
 		}
-		// Á´±íÄæÖÃ
-		node pre = null;	//Ö¸Ïòµ±Ç°½ÚµãµÄÇ°Ò»¸ö½Úµã
-		node cur = list ; 	//Ö¸Ïòµ±Ç°½Úµã
-		node next = list;	//Ö¸Ïòµ±Ç°½ÚµãµÄÏÂÒ»¸ö½Úµã
+		// é“¾è¡¨é€†ç½®
+		node pre = null;	//æŒ‡å‘å½“å‰èŠ‚ç‚¹çš„å‰ä¸€ä¸ªèŠ‚ç‚¹
+		node cur = list ; 	//æŒ‡å‘å½“å‰èŠ‚ç‚¹
+		node next = list;	//æŒ‡å‘å½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 		while(cur!= null){
 			next = cur.next;
 			cur.next = pre;
@@ -34,7 +34,7 @@ public class Linklistreverse {
 	}
 
 	public static node generatelist() {
-		//Éú³ÉÁ´±í
+		//ç”Ÿæˆé“¾è¡¨
 		node n1 = new node(1,"a");
 		node n2 = new node(2,"b");
 		node n3 = new node(3,"c");
@@ -47,6 +47,7 @@ public class Linklistreverse {
 	}
 
 }
+
 
 class node{
 	int key;
